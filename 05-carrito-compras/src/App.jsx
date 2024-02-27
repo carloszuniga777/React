@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Products } from "./components/Products.jsx"
 import { products as initialProducts } from "./mocks/products.json"
-
+import { Header } from "./components/Header.jsx"
 
 function App() {
   const[products] = useState(initialProducts)
@@ -10,14 +10,28 @@ function App() {
     minPrice: 0
   })
 
-  /*
+  
   const filtersProducts = (products) => {
-    return 
+    return products.filter( product => {
+      return (
+          product.price >= filters.minPrice &&
+          (
+             filters.category === 'all' ||
+             product.category === filters.category
+          )
+      )
+    })
   } 
-  */
+  
+
+  const filteredProducts = filtersProducts(products)
 
   return (
-      <Products products={products}/> 
+    <>
+       <Header/>
+       <Products products={filteredProducts}/> 
+    </>
+
   )
 }
 
