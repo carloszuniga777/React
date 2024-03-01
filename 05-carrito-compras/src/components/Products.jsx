@@ -14,7 +14,7 @@ export function Products({ products }){
                             <strong>{product.title}</strong> - ${product.price}
                         </div>
                         <div>
-                            <button>
+                            <button >
                                 <AddToCartIcon/>
                             </button>
                         </div>
